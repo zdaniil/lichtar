@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Mega Filter PLUS</name>
+    <code>Mega Filter PLUS</code>
+    <version>1.0</version>
+    <author>marsilea15@gmail.com</author>
+    <link>mailto:marsilea15@gmail.com</link>
+	
+	<file path="admin/model/catalog/product.php">
+		<operation>
+			<search><![CDATA[$this->cache->delete('product');]]></search>
+			<add position="before"><![CDATA[
+				if( $this->config->get( 'mfilter_plus_version' ) && in_array( __FUNCTION__, array( 'addProduct', 'editProduct' ) ) ) {
+					require_once modification( DIR_SYSTEM . 'library/mfilter_plus.php' );
+					
+					Mfilter_Plus::getInstance( $this )->updateProduct( $product_id );
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/model/catalog/filter.php" error="skip">
+		<operation>
+			<search><![CDATA[function deleteFilter($filter_group_id) {]]></search>
+			<add position="after"><![CDATA[
+				if( $this->config->get( 'mfilter_plus_version' ) ) {
+					require_once modification( DIR_SYSTEM . 'library/mfilter_plus.php' );
+					
+					Mfilter_Plus::getInstance( $this )->deleteFilter( $filter_group_id );
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[function editFilter($filter_group_id, $data) {]]></search>
+			<add position="after"><![CDATA[
+				if( $this->config->get( 'mfilter_plus_version' ) ) {
+					$beforeEditFilter = $this->db->query( "SELECT * FROM `" . DB_PREFIX . "filter` WHERE `filter_group_id` = " . (int) $filter_group_id )->rows;
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[if (isset($data['filter'])) {]]></search>
+			<add position="before"><![CDATA[
+				if( $this->config->get( 'mfilter_plus_version' ) && in_array( __FUNCTION__, array( 'editFilter' ) ) ) {
+					require_once modification( DIR_SYSTEM . 'library/mfilter_plus.php' );
+					
+					Mfilter_Plus::getInstance( $this )->editFilter( $data, $beforeEditFilter );
+				}
+			]]></add>
+		</operation>
+	</file>
+
+</modification>

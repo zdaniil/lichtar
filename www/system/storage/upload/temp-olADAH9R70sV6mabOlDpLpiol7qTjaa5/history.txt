@@ -1,0 +1,44 @@
+2015-03-07 [+] update README
+2015-03-01 [+] docs: Описание установки на русском (ocmod)
+2015-02-26 [+] docs: how to make nice URLs on any route
+2015-02-21 [+] add compatibility fix for Pavillion Theme (original_route parameter)
+2015-02-16 [!] fix PHP Notice: Undefined variable: redirect_ssl in .../catalog/view/theme/default/template/common/language.tpl
+2015-02-11 [!] Language defaults were not loaded (text_home bug)
+2015-02-09 [!] Fix incorrect commit
+2015-02-09 [!] Fix resetting language code in cookies by captcha
+2015-02-08 [!] Api requests shoud not be validated
+2015-02-08 [+] Main page does not have language code for default language even if it is shown for other pages
+2015-02-06 [+] Module Configurator has the switcher to remove language code from the URI when language is equal to the default one; [!] The canonical URL for the main page has no language code for the default language; [+] The main page has it's own alias that can be added to the url-alias table manually
+2015-02-05 [+] Remove language code from the URI for default language
+2015-01-31 [!] installation instructions moved to separate files: for manual setup and via OCMOD
+2015-01-29 [+] README: add "OCMOD Multiline fix" requirement
+2015-01-27 [+] OCMOD installer
+2015-01-25 [!] Redirect lost POST parameters - fixed.
+2015-01-25 [!] Fix redirect bug for cURL API requests
+2015-01-24 [!] fix bug: skip some API routes called from admin area:
+2015-01-19 Alternate HrefLang
+2015-01-19 Copyright header has been redesigned
+2015-01-18 Configurator is added. Reset cache on seokeyword modification
+2015-01-16 [+][!] fix wrong "canonical" link for homepage
+2015-01-15 [+] add .htaccess fix for sitemap.xml for multilanguage URI
+2015-01-15 [!][seopro] fix 404 on manufacturer products page
+2015-01-14 Language switcher
+2015-01-14 [+] update README: finishing install by settings in backend
+2015-01-10 [+] SEO URL works fine.  Please use htaccess
+2015-01-09 Change project structure
+2014-07-13 README: add authors/contributors info
+2014-07-13 [!] fixed #2: при выборе категории на странице поиска переходит в категорию, а не ищет товары
+2014-06-24 fix typo in README
+2014-06-24 UPD repo description
+2014-06-24 add SeoPro / tested on oc1564
+2013-07-17 add support any query redirect
+2013-07-04 README: перенёс описания с форума в репо, как в более логичное место.
+2013-07-03 README: fix typo
+2013-06-19 multilang cross-browser fix
+2013-06-14 seo_pro multilang cookie set
+2013-06-09 Update seo_pro.php
+2013-05-27 fix 1.5.4+ manufacturer seo page
+2013-05-26 Add more info to README
+2013-02-25 trailing slash fix
+2013-02-22 add files
+2013-02-22 first commit
